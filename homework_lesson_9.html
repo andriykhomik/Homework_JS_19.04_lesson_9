@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework_lesson_9</title>
+</head>
+<body>
+
+<script>
+
+// - Зробити свій розпоряжок дня.
+//
+// - Мають бути функції, які є асинхронними (мають сетТаймАут або сетІнтервал)
+// які описують якусь певну вашу дію в день.
+// - Наприклад функція прокинутись триває 1с, поїсти - 0,5с. Доїхати до роботи - 2с. Пообідати - 1с.
+// - Зробити таких функцій в районі 10 штук. Функція має приймати параметр,
+// який буде відповідати за успішне чи не успішне виконання.
+// - Далі виконати їх в тій послідовності, в якій ви виконуєте їх у свій звичайний день.
+//
+// - Тобто, як приклад
+// - Пкинулись - Поснідали - Зібрались - ПОїхали на роботу - Працююєте - Пообідали
+// - Працюєте - Випили кави - Працюєте - Поїхали до дому - Повчились - Лягли спати.
+//
+// - Кожна функція має мати якесь успіше або не успішне виконання.
+// Тобто можливий варіант, що при виконанні функції доїхати на роботу
+// ви стали в заторі і не попали на роботу. Або йдучи на обід ви забули гаманець і лишились голодні.
+
+function MyDay(isGetUp, callback) {
+    setTimeout(()=>{
+        if (isGetUp) {
+            callback(null,'I get up today!')
+        } else {
+            callback('i want to sleep. I dont go to my job!')
+        }
+    }, 150)
+}
+
+function Washing(isHotWater, callback) {
+    setTimeout(()=> {
+        if (isHotWater) {
+            callback(null,'It is very nice.')
+        } else {
+            callback('I wan hot water. I go to bed!')
+        }
+    }, 1150)
+}
+
+function Breakfast(isMeal, callback) {
+    setTimeout(()=> {
+        if (isMeal) {
+            callback(null, 'Fine, I full')
+        } else {
+            callback('I am hungry')
+        }
+    }, 75)
+}
+
+function WaitBus(isBus, callback) {
+    setTimeout(()=> {
+        if (isBus) {
+            callback(null, 'I will be at job soon')
+        } else {
+            callback('I will be late')
+        }
+    }, 550)
+}
+
+function GetJob(isGetJob, callback) {
+    setTimeout(()=> {
+        if (isGetJob) {
+            callback(null,'I am so happy to be here')
+        } else {
+            callback('I will lost my job')
+        }
+    }, 320)
+}
+
+function BigTask(isDone, callback) {
+    setTimeout(()=> {
+        if (isDone) {
+            callback(null,'I will get award')
+        } else {
+            callback('will not receive the award')
+        }
+    }, 100)
+}
+
+function Lunch(isMoney, callback) {
+    setTimeout(()=> {
+        if (isMoney) {
+            callback(null, 'It was so deliciously')
+        } else {
+            callback('I am very hungry and angry')
+        }
+    }, 1200)
+}
+
+function ReturnHardWork(isWork, callback) {
+    setTimeout(()=> {
+        if (isWork) {
+            callback(null, 'I got new interesting task')
+        } else {
+            callback('I can lost my job')
+        }
+    }, 1300)
+}
+
+
+function FinishWork(isFinish, callback) {
+    setTimeout(()=> {
+        if (isFinish) {
+            callback(null,'Finally I will go my home')
+        } else {
+            callback('I will sleep at my job')
+        }
+    }, 1000)
+}
+
+
+function HaveCar(isCar, callback) {
+    setTimeout(()=> {
+        if (isCar) {
+            callback(null,'I like driving streets of Lviv')
+        } else {
+            callback('Better to walk home then on the bus ')
+        }
+    }, 155)
+}
+
+
+function HomeAgain(isHome, callback) {
+    setTimeout(()=> {
+        if (isHome) {
+            callback(null, 'I am going to bathroom then diner and go to sleep on my lovely bed')
+        } else {
+            callback('I sleep in park on a bench')
+        }
+    }, 230)
+}
+
+
+MyDay(true, (error, data) =>{
+    if (error){
+        console.log(error);
+    } else {
+        console.log(data);
+        Washing(true, (error, data) =>{
+            if (error){
+                console.log(error);
+            } else {
+                console.log(data);
+                Breakfast(true, (error, data) =>{
+                    if (error){
+                        console.log(error);
+                    } else {
+                        console.log(data);
+                        WaitBus(true, (error, data) =>{
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log(data);
+                                GetJob(true, (error, data) =>{
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log(data);
+                                        BigTask(true, (error, data) =>{
+                                            if (error) {
+                                                console.log(error);
+                                            } else {
+                                                console.log(data);
+                                                Lunch(true, (error, data) =>{
+                                                    if (error) {
+                                                        console.log(error);
+                                                    } else {
+                                                        console.log(data);
+                                                        ReturnHardWork(true, (error, data) =>{
+                                                            if (error) {
+                                                                console.log(error);
+                                                            } else {
+                                                                console.log(data);
+                                                                FinishWork(true, (error, data) =>{
+                                                                    if (error) {
+                                                                        console.log(error);
+                                                                    } else {
+                                                                        console.log(data);
+                                                                        HaveCar(true, (error, data) =>{
+                                                                            if (error) {
+                                                                                console.log(error);
+                                                                            } else {
+                                                                                console.log(data);
+                                                                                HomeAgain(true, (error, data) =>{
+                                                                                    if (error){
+                                                                                        console.log(error);
+                                                                                    } else {
+                                                                                        console.log(data);
+                                                                                    }
+                                                                                })
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                })
+                                                            }
+                                                        })
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+});
+
+
+
+
+function MyDay(isGetUp) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            if (isGetUp) {
+                resolve('I get up today!')
+            } else {
+                reject('i want to sleep. I dont go to my job!')
+            }
+        }, 150)
+    })
+}
+
+function Washing(isHotWater) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isHotWater) {
+                resolve('It is very nice.')
+            } else {
+                reject('I wan hot water. I go to bed!')
+            }
+        }, 200)
+    })
+}
+
+function Breakfast(isMeal) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isMeal) {
+                resolve('Fine, I full')
+            } else {
+                reject('I am hungry')
+            }
+        }, 50)
+    })
+}
+
+function WaitBus(isBus) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isBus) {
+                resolve('I will be at job soon')
+            } else {
+                reject('I will be late')
+            }
+        }, 550)
+    })
+}
+
+function GetJob(isGetJob) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isGetJob) {
+                resolve('I am so happy to be here')
+            } else {
+                reject('I will lost my job')
+            }
+        }, 320)
+    })
+}
+
+function BigTask(isDone) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isDone) {
+                resolve('I will get award')
+            } else {
+                reject('will not receive the award')
+            }
+        }, 100)
+    })
+}
+
+function Lunch(isMoney) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isMoney) {
+                resolve('It was so deliciously')
+            } else {
+                reject('I am very hungry and angry')
+            }
+        }, 200)
+    })
+}
+
+function ReturnHardWork(isWork) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isWork) {
+                resolve('I got new interesting task')
+            } else {
+                reject('I can lost my job')
+            }
+        }, 300)
+    })
+}
+
+
+function FinishWork(isFinish) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isFinish) {
+                resolve('Finally I will go my home')
+            } else {
+                reject('I will sleep at my job')
+            }
+        }, 1000)
+    })
+}
+
+
+function HaveCar(isCar) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isCar) {
+                resolve('I like driving streets of Lviv')
+            } else {
+                reject('Better to walk home then on the bus ')
+            }
+        }, 55)
+    })
+}
+
+
+function HomeAgain(isHome) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if (isHome) {
+                resolve('I am going to bathroom then diner and go to sleep on my lovely bed')
+            } else {
+                reject('I sleep in park on a bench')
+            }
+        }, 230)
+    })
+}
+
+
+MyDay(true)
+    .then(value => {
+        console.log(value);
+
+        return Washing(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return Breakfast(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return WaitBus(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return GetJob(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return BigTask(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return Lunch(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return ReturnHardWork(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return FinishWork(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return HaveCar(value);
+    })
+    .then(value => {
+        console.log(value);
+
+        return HomeAgain(value);
+    })
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+
+
+</script>
+</body>
+</html>
